@@ -11,6 +11,6 @@ import java.util.ArrayList;
 @Repository
 public interface TypePersonneMoraleRepository extends JpaRepository<TypePersonneMorale, Long> {
     @Query("SELECT c FROM TypePersonneMorale c where c.intitule= :intitule")
-    ArrayList<TypePersonneMorale> findByTypePersonneMOrale(@Param("intitule")String intitule);
+    ArrayList<TypePersonneMorale> findByTypePersonneMorale(@Param("intitule")String intitule);
     ArrayList<TypePersonneMorale> findByIntitule(String intitule);
 }

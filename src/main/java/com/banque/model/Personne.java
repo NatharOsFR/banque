@@ -54,11 +54,6 @@ public abstract class Personne {
     {
         clientsBancaires.add(clientBancaire);
 
-        // Je suis du côté non propriétaire de la relation
-        // Si l'ajout d'une instance de la relation est initié par la personne, je dois rajouter
-        // à la main la personne dans le client bancaire
-        // Si l'ajout est initié par le client bancaire, la personne sera déjà dans le client bancaire
-        // => test if
         if (!clientBancaire.getPersonnes().contains(this)) clientBancaire.addPersonne(this);
     }
     public void removeClientBancaireFromClientBancaire(ClientBancaire clientBancaire)
@@ -67,24 +62,14 @@ public abstract class Personne {
             clientsBancaires.remove(clientBancaire);
         }
 
-        // Je suis du côté non propriétaire de la relation
-        // Si la suppression d'une instance de la relation est initiée par la personne, je dois enlever
-        // à la main la personne dans le client bancaire
-        // Si la suppression est initiée par le client bancaire, la personne sera déjà supprimée du client bancaire
-        // => test if
         if (clientBancaire.getPersonnes().contains(this)) clientBancaire.removePersonne(this);
     }
     public void removeClientBancaire(ClientBancaire clientBancaire)
     {
         clientsBancaires.remove(clientBancaire);
-
-        // Je suis du côté non propriétaire de la relation
-        // Si la suppression d'une instance de la relation est initiée par la personne, je dois enlever
-        // à la main la personne dans le client bancaire
-        // Si la suppression est initiée par le client bancaire, la personne sera déjà supprimée du client bancaire
-        // => test if
         if (clientBancaire.getPersonnes().contains(this)) clientBancaire.getPersonnes().remove(this);
     }
+
     @Override
     public String toString() {
         return "Personne{" + "Adresse='" + adresse + '\'' + '}';

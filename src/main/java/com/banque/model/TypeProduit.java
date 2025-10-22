@@ -24,8 +24,6 @@ public class TypeProduit {
     @Column(name = "cotisation_carte", nullable = true, columnDefinition = "FLOAT")
     private float cotisationCarte;
 
-    // Création du lien OneToManby côté NON propriétaire
-    // mappedBy contient le nom de l'attribut ManyToOne dans ProduitBancaire
     @OneToMany(mappedBy = "typeProduit", fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
     private List<ProduitBancaire> produitsBancaires=new ArrayList<>();
 
@@ -110,8 +108,6 @@ public class TypeProduit {
 
     private void gererLiens()
     {
-        // Pour casser le lien avec les types de produits
-        // A utiliser dans le cas d'une cardinalité minimale 0
         for (ProduitBancaire pb : produitsBancaires)
         {
             pb.setTypeProduit(null);
