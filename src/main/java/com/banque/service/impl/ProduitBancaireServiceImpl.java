@@ -1,4 +1,4 @@
-﻿package com.banque.service.impl;
+package com.banque.service.impl;
 import com.banque.model.ProduitBancaire;
 import com.banque.repository.ProduitBancaireRepository;
 import com.banque.service.ProduitBancaireService;

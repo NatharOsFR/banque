@@ -188,16 +188,16 @@ public class BanqueApplication {
 
             System.out.println("\n***************** Opérations bancaires *****************");
 
-            Operation op1 = new Operation(new java.sql.Date(System.currentTimeMillis()), 150.0f, pb1);
-            Operation op2 = new Operation(new java.sql.Date(System.currentTimeMillis()), -50.0f, pb1);
+            Operation op1 = new Operation(new java.sql.Date(System.currentTimeMillis()), 150.0f, "VIREMENT", "Virement à Paul", pb1);
+            Operation op2 = new Operation(new java.sql.Date(System.currentTimeMillis()), -50.0f, "CREDIT", "CREDIT à Jean", pb1);
             pb1.addOperation(op1);
             pb1.addOperation(op2);
 
-            Operation op3 = new Operation(new java.sql.Date(System.currentTimeMillis()), 300.0f, pb2);
+            Operation op3 = new Operation(new java.sql.Date(System.currentTimeMillis()), 300.0f, "CHEQUE", "CHEQUE à Paul", pb2);
             pb2.addOperation(op3);
 
-            Operation op4 = new Operation(new java.sql.Date(System.currentTimeMillis()), -75.0f, pb3);
-            Operation op5 = new Operation(new java.sql.Date(System.currentTimeMillis()), 200.0f, pb3);
+            Operation op4 = new Operation(new java.sql.Date(System.currentTimeMillis()), -75.0f, "CHEQUE", "CHEQUE à Emma", pb3);
+            Operation op5 = new Operation(new java.sql.Date(System.currentTimeMillis()), 200.0f, "VIREMENT", "Virement à Lisa", pb3);
             pb3.addOperation(op4);
             pb3.addOperation(op5);
 

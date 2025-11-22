@@ -1,4 +1,4 @@
-﻿package com.banque.service;
+package com.banque.service;
 import com.banque.model.PersonneMorale;
 import java.util.List;
 

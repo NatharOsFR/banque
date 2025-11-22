@@ -1,5 +1,6 @@
 package com.banque.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -25,6 +26,7 @@ public class TypeProduit {
     private float cotisationCarte;
 
     @OneToMany(mappedBy = "typeProduit", fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, orphanRemoval = true)
+    @JsonIgnore
     private List<ProduitBancaire> produitsBancaires=new ArrayList<>();
 
     public TypeProduit() {

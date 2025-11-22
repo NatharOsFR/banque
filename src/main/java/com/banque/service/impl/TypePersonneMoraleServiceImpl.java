@@ -1,4 +1,4 @@
-﻿package com.banque.service.impl;
+package com.banque.service.impl;
 
 import com.banque.model.TypePersonneMorale;
 import com.banque.repository.TypePersonneMoraleRepository;

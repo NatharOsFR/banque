@@ -1,7 +1,7 @@
 package com.banque.model;
 
 import jakarta.persistence.*;
-import java.sql.Date; // ✅ utilisation de java.sql.Date
+import java.sql.Date;
 
 @Entity
 @Table(name = "operation")
@@ -18,20 +18,32 @@ public class Operation {
     @Column(name = "montant", nullable = false)
     private float montant;
 
+    @Column(name = "type", nullable = false)
+    private String type;
+
+    @Column(name = "libelle", nullable = false)
+    private String libelle;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "produit_bancaire_id")
     private ProduitBancaire produitBancaire;
 
     public Operation() {}
 
-    public Operation(Date dateOperation, float montant, ProduitBancaire produitBancaire) {
+    public Operation(Date dateOperation, float montant, String type, String libelle, ProduitBancaire produitBancaire) {
         this.dateOperation = dateOperation;
         this.montant = montant;
         this.produitBancaire = produitBancaire;
+        this.type = type;
+        this.libelle = libelle;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Date getDateOperation() {
@@ -50,6 +62,22 @@ public class Operation {
         this.montant = montant;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
+    }
+
     public ProduitBancaire getProduitBancaire() {
         return produitBancaire;
     }
@@ -64,6 +92,8 @@ public class Operation {
                 "id=" + id +
                 ", dateOperation=" + dateOperation +
                 ", montant=" + montant +
+                ", type='" + type + '\'' +
+                ", libelle='" + libelle + '\'' +
                 '}';
     }
 }

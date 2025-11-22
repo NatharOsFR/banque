@@ -2,9 +2,10 @@ package com.banque.model;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 @Entity
@@ -27,7 +28,7 @@ public class ProduitBancaire {
     private TypeProduit typeProduit;
 
     @OneToMany(mappedBy = "produitBancaire", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<Operation> operations = new ArrayList<>();
+    private Set<Operation> operations = new HashSet<>();
     public ProduitBancaire(float solde_courant, String numeroCompte, TypeProduit TypeProduit) {
         this.solde_courant = solde_courant;
         this.numeroCompte = numeroCompte;
@@ -61,8 +62,8 @@ public class ProduitBancaire {
         this.numeroCompte = numeroCompte;
     }
 
-    public List<Operation> getOperations() { return operations; }
-    public void setOperations(List<Operation> operations) { this.operations = operations; }
+    public Set<Operation> getOperations() { return operations; }
+    public void setOperations(Set<Operation> operations) { this.operations = operations; }
 
     public void addOperation(Operation operation) {
         operations.add(operation);
